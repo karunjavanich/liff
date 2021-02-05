@@ -21,11 +21,13 @@
   <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
   <script>
 
-    function getEnvironment().then(profile => {
-      document.getElementById("os").innerHTML = '<b>Os:</b> ' + profile.os;
-      document.getElementById("language").innerHTML = '<b>Language:</b> ' + profile.language;
-      document.getElementById("version").innerHTML = '<b>Version:</b> ' + profile.version;
-      document.getElementById("accessToken").innerHTML = '<b>Access Token:</b> ' + profile.accessToken;
+    function getEnvironment() {
+      liff.getProfile().then(profile => {
+        document.getElementById("os").innerHTML = '<b>Os:</b> ' + profile.os;
+        document.getElementById("language").innerHTML = '<b>Language:</b> ' + profile.language;
+        document.getElementById("version").innerHTML = '<b>Version:</b> ' + profile.version;
+        document.getElementById("accessToken").innerHTML = '<b>Access Token:</b> ' + profile.accessToken;
+      }).catch(err => console.error(err));
     }
       
     function runApp() {
