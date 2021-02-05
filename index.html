@@ -22,11 +22,10 @@
   <script>
 
     function getEnvironment() {
-      document.getElementById("os").innerHTML = '<b>Os:</b> ' + profile.statusMessage;
-      document.getElementById("language").innerHTML = '<b>Language:</b> ' + profile.statusMessage;
-      document.getElementById("version").innerHTML = '<b>Version:</b> ' + profile.statusMessage;
-      document.getElementById("accessToken").innerHTML = '<b>Access Token:</b> ' + profile.statusMessage;
-      document.getElementById("isInClient").innerHTML = '<b>Client:</b> ' + profile.statusMessage;
+      document.getElementById("os").innerHTML = '<b>Os:</b> ' + profile.os;
+      document.getElementById("language").innerHTML = '<b>Language:</b> ' + profile.language;
+      document.getElementById("version").innerHTML = '<b>Version:</b> ' + profile.version;
+      document.getElementById("accessToken").innerHTML = '<b>Access Token:</b> ' + profile.accessToken;
     }
       
     function runApp() {
