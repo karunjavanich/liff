@@ -9,12 +9,25 @@
 </head>
 <body>
   <img id="pictureUrl" width="25%">
+  <p id="os"></p>
+  <p id="language"></p>
+  <p id="version"></p>
+  <p id="isInClient"></p>
+  <p id="accessToken"></p>
   <p id="userId"></p>
   <p id="displayName"></p>
   <p id="statusMessage"></p>
   <p id="getDecodedIDToken"></p>
   <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
   <script>
+
+    function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("isInClient").append(liff.isInClient())
+
     function runApp() {
       liff.getProfile().then(profile => {
         document.getElementById("pictureUrl").src = profile.pictureUrl;
@@ -27,6 +40,7 @@
     liff.init({ liffId: "1655638225-3RE5K55g" }, () => {
       if (liff.isLoggedIn()) {
         runApp()
+        getEnvironment()
       } else {
         liff.login();
       }
